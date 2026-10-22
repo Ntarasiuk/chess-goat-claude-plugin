@@ -2,7 +2,7 @@
 
 Same MCP server as the ChatGPT app: https://trychessgoat.com/mcp (stateless Streamable HTTP, OAuth 2.1 for Goat Pass and reports). This directory is the Claude Code plugin; claude.ai and Claude Desktop need no package.
 
-How the server tells hosts apart: `initialize` returns an `Mcp-Session-Id` that encodes the client (from `clientInfo.name`) and whether it declared the MCP Apps UI extension; hosts echo it on every call (worker/mcp/host.ts). claude.ai and Claude Desktop render the card and board widgets through MCP Apps; Claude Code gets boards in text (`show_position` returns the FEN, an /analyze/ link and, for exercises, the answers, hints and refutations for the model) and matching server instructions. Links and progress records carry `src=claude`.
+How the server tells hosts apart: `initialize` returns an `Mcp-Session-Id` that encodes the client (from `clientInfo.name`) and whether it declared the MCP Apps UI extension; hosts echo it on every call (worker/mcp/host.ts). claude.ai and Claude Desktop render the card and board widgets through MCP Apps; Claude Code gets boards in text only (`show_position` returns the FEN, an /analyze/ link and, for exercises, the answers, hints and refutations for the model, with no structuredContent: Claude Code shows that JSON to the model instead of the text) and matching server instructions. Links and progress records carry `src=claude`.
 
 ## claude.ai / Claude Desktop
 
@@ -19,7 +19,11 @@ claude plugin marketplace add ./claude-plugin
 claude plugin install chess-goat@chess-goat
 ```
 
-Publishing needs a public repo holding this directory's contents at its root (the chess-goat repo is private, so a marketplace pointed at it cannot be fetched by anyone else); then `claude plugin marketplace add <owner>/<repo>`.
+Published mirror: https://github.com/Ntarasiuk/chess-goat-claude-plugin (this directory at its root; the chess-goat repo is private, so a marketplace pointed at it cannot be fetched by anyone else). Install: `claude plugin marketplace add Ntarasiuk/chess-goat-claude-plugin` then `claude plugin install chess-goat@chess-goat`. After changing this directory, sync the mirror:
+
+```
+git subtree push --prefix claude-plugin https://github.com/Ntarasiuk/chess-goat-claude-plugin.git main
+```
 
 Manual acceptance (Claude Code):
 1. `/mcp` lists chess-goat with the public tools; `goat_card hikaru` returns the card summary with a `?src=claude` link.

@@ -1,0 +1,25 @@
+{
+  "name": "chess-goat",
+  "version": "1.0.0",
+  "description": "Chess lessons in your chat, built from your latest chess.com games: a full course with drills and checkpoints, Goat Cards, opening scores, and your Goat Report.",
+  "author": {
+    "name": "Chess Goat",
+    "email": "hello@trychessgoat.com",
+    "url": "https://trychessgoat.com"
+  },
+  "homepage": "https://trychessgoat.com/claude/",
+  "license": "Proprietary",
+  "keywords": [
+    "chess",
+    "chess lessons",
+    "chess course",
+    "chess.com",
+    "stockfish",
+    "chess puzzles",
+    "chess improvement"
+  ],
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills",
+  "privacyPolicyUrl": "https://trychessgoat.com/privacy/",
+  "icon": "./.claude-plugin/icon.png"
+}

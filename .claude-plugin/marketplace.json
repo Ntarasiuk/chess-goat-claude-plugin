@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "chess-goat",
+  "metadata": {
+    "description": "Chess Goat: a chess coach built from your chess.com games."
+  },
+  "owner": {
+    "name": "Chess Goat",
+    "email": "hello@trychessgoat.com",
+    "url": "https://trychessgoat.com"
+  },
+  "plugins": [
+    {
+      "name": "chess-goat",
+      "source": "./",
+      "description": "Chess lessons in your chat, built from your latest chess.com games.",
+      "version": "1.0.0",
+      "category": "education",
+      "homepage": "https://trychessgoat.com/claude/",
+      "tags": ["chess", "lessons", "chess.com", "puzzles"]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "chess-goat": {
+      "type": "http",
+      "url": "https://trychessgoat.com/mcp"
+    }
+  }
+}
